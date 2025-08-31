@@ -1,5 +1,4 @@
 import { supabase } from '../../../lib/supabaseClient';
-import { twitterClient } from '../../../lib/twitterClient';
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {

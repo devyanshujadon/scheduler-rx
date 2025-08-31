@@ -2,10 +2,16 @@
 
 import { useState, useEffect } from 'react';
 
+interface Post {
+  id: number;
+  content: string;
+  schedule_time: string;
+}
+
 export default function Home() {
   const [postContent, setPostContent] = useState('');
   const [scheduleTime, setScheduleTime] = useState('');
-  const [scheduledPosts, setScheduledPosts] = useState<any[]>([]);
+  const [scheduledPosts, setScheduledPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     const fetchPosts = async () => {

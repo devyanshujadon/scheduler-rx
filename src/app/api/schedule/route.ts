@@ -9,9 +9,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing post content or schedule time' }, { status: 400 });
     }
 
+    const scheduleDate = new Date(scheduleTime);
+
     const { data, error } = await supabase
       .from('posts')
-      .insert([{ content: postContent, schedule_time: scheduleTime }])
+      .insert([{ content: postContent, schedule_time: scheduleDate.toISOString() }])
       .select();
 
     if (error) {
